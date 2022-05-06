@@ -1,4 +1,4 @@
-from flask import current_app, flash, jsonify, request, redirect
+from flask import current_app, flash, jsonify, request, redirect, send_from_directory
 from flask_cors import cross_origin
 from app import create_app, db, mail
 
@@ -69,6 +69,11 @@ def convert_utc_to_cst(utc_time):
 #############################################
 ################## routes ###################
 #############################################
+
+
+@app.route("/")
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route("/get-stats")
