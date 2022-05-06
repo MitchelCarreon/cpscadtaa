@@ -1,5 +1,28 @@
+####  **Deployment from original repo** (Updated 5/5/22)
 
-**Setting up (Windows)** (Updated 4/8/22)
+- **Get zip file** of latest branch
+- **Create** a new **GitHub repository** (i.e., ```git init```) and push source code from zip.
+- Run ```heroku git:remote -a example-app``` and ```git push```
+- Then, make the following changes:
+  - In ***app.py***, add the following line: *app = Flask(__name__, static_folder='frontend/build' static_url_path='')*
+  - In ***routes.py***, add: *def serve(): return send_from_directory(app.static_folder, 'index.html')*
+  - In ***frontend/package.json***, change proxy to name of heroku domain (*https://cpsc-adtaa.herokuapp.com/*).
+  - In ***frontend/.gitignore***, comment out */build* 
+  - In ***.flaskenv***, do *FLASK_ENV=production* from *FLASK_ENV=development*
+  - In the ***root folder***, create a Procfile (i.e., ```touch Procfile```) and add *web: gunicorn* ***routes:app*** (make this point to the Flask object)
+
+- Finally, run the following:
+```
+npm run build
+git push heroku main
+```
+
+##### References:
+- Deploying react app in heroku [YouTube tutorial](https://youtu.be/h96KP3JMX7Q?t=784)
+- Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
+  
+------------------------------------------
+#### **Setting up (Windows)** (Updated 4/8/22)
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -29,7 +52,7 @@ npm start
 ```
 
 ------------------------------------------
-**Setting up (MacOS)** (Updated 4/8/22)
+#### **Setting up (MacOS)** (Updated 4/8/22)
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -87,7 +110,7 @@ npm start
 ```
 
 ------------------------------------------
-***ISSUES*** (Updated 4/29/22)
+#### ***ISSUES*** (Updated 4/29/22)
 
 ***Import could not be resolved from source***
 - Inside VSCode command palette (```Ctrl + Shift + P```), find *Python: Select Interpeter*
