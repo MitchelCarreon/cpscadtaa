@@ -18,7 +18,8 @@ git push heroku main
 ```
 
 References:
-- Deploying react app in heroku [YouTube tutorial](https://youtu.be/h96KP3JMX7Q?t=784)
+- Deploying flask-react app in heroku [YouTube tutorial](https://youtu.be/h96KP3JMX7Q?t=784)
+- Deploying flask-react app in heroku [article tutorial](https://towardsdatascience.com/build-deploy-a-react-flask-app-47a89a5d17d9)
 - Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
   
 ------------------------------------------
