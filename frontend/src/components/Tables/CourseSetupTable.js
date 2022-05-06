@@ -62,14 +62,23 @@ const MenuProps = {
 
 // TODO: Put in a constants file and import here.
 const recognizedDisciplineAreas = [
-  "Software Engineering",
-  "Programming",
   "Artificial Intelligence",
-  "Algorithms",
-  "UI Design",
-  "Computer Architecture",
-  "Mobile apps development",
-  "Database structures and design",
+  "Computer Organization",
+  "Cybersecurity",
+  "Data Structures and Algorithms",
+  "Game Development",
+  "Hardware Designs",
+  "Mobile Applications",
+  "Networks",
+  "Operating Systems",
+  "Parallel and Distributed Systems",
+  "Programming Languages",
+  "Programming-C++",
+  "Programming-Python",
+  "Software Development Methodologies",
+  "Software Engineering",
+  "Theory of Computation",
+  "Virtual Reality",
 ];
 
 // for discipline area dropdown menu items
@@ -477,7 +486,7 @@ export default function CustomPaginationActionsTable(props) {
           ).map((row) => {
             return (
               <TableRow key={row.name} style={{ border: "none" }}>
-                <TableCell style={{fontWeight: "bold"}}>
+                <TableCell style={{ fontWeight: "bold" }}>
                   {row.courseName === "" || editCourseID === row.id ? (
                     <TextField
                       variant="outlined"
