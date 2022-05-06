@@ -62,6 +62,7 @@ const recognizedDisciplineAreas = [
   "Artificial Intelligence",
   "Computer Organization",
   "Cybersecurity",
+  "Data structures",
   "Data Structures and Algorithms",
   "Game Development",
   "Hardware Designs",
