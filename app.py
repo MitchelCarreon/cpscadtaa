@@ -21,7 +21,7 @@ mail = Mail()
 
 def create_app():
     """Application-factory pattern"""
-    app = Flask(__name__, static_folder='frontend/build', static_url='')
+    app = Flask(__name__, static_folder='frontend/build', static_url_path='')
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
