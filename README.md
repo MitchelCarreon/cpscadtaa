@@ -17,7 +17,7 @@ npm run build
 git push heroku main
 ```
 
-##### References:
+References:
 - Deploying react app in heroku [YouTube tutorial](https://youtu.be/h96KP3JMX7Q?t=784)
 - Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
   
