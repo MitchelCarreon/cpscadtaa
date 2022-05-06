@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+/*  */
+
+/* tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  
+} */
+.add-instructor-btn {
+  margin: 1rem !important;
+  border-radius: 0.5rem;
+  padding: 0.35rem 1rem;
+  /* background: #28a745 !important; */
+  background: #732d40 !important;
+  border-style: none;
+}
+.add-instructor-btn:disabled {
+  background: #9fada2 !important;
+  /* color: #000 !important; */
+}
+
+.save-btn:enabled {
+  color: #732d40;
+}
+
+.last-name-text {
+  font-weight: bold !important;
+}
+
+.expertise-header {
+  /* padding-right: 0rem !important; */
+}
+
+.list-items-discipline-areas {
+  display: flex;
+  flex-direction: row;
+  /* gap: 10px; */
+  gap: 5px;
+  flex-wrap: wrap;
+}
+/* TODO: Make li into MUI chips */
+.list-items-discipline-areas li {
+  list-style-type: none;
+}
+
+.instructor-card-table:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.instructor-card-table {
+  transition: 0.7s;
+}
+
+/* 
+table.roster-table {
+  border-collapse: collapse;
+  font-family: "Open sans";
+  border: none;
+  box-shadow: 0px 0px 32px rgba(136, 152, 170, 0.15);
+  width: 60vw;
+  
+  margin-bottom: 2rem;
+}
+thead tr.table-title th {
+  background-color: #fff;
+  padding: 1.5rem 0rem 1.5rem 1.3rem;
+  text-align: start;
+  color: #32325d;
+}
+
+thead tr.table-headers th {
+  border-top: 1px solid #E9ECEF;
+  border-bottom: 1px solid #E9ECEF;
+  padding: 0.9rem 0.7rem 1rem 0.7rem;
+  font-size: small;
+  color: #8898aa;
+  background-color: #f6f9fc;
+  text-align: start;
+
+  
+}
+
+thead tr.table-title th:first-child {
+  border-radius: 0.8rem 0rem 0rem 0rem;
+}
+thead tr.table-title th:last-child {
+  border-radius: 0rem 0.8rem 0rem 0rem;
+}
+tfoot td:first-child {
+  border-radius: 0rem 0rem 0.8rem 0.8rem;
+  background-color: #fff;
+}
+
+tbody tr.table-data td:first-child {
+  color: #525f7f;
+  font-weight: bold;
+}
+tbody tr.table-data td:nth-child(2),
+tbody tr.table-data td:nth-child(4),
+tbody tr.table-data td:nth-child(3) {
+  color: #8898aa;
+}
+
+
+tbody tr.table-data td:nth-child(3) ul {
+  list-style: none;
+  font-size: x-small;
+  padding-inline-start: 0rem;
+}
+
+tbody tr.table-data td {
+  padding: 0.9rem 0.7rem 0.5rem 0.7rem;
+  font-size: small;
+  text-align: start;
+  background-color: #fff;
+
+  
+} */

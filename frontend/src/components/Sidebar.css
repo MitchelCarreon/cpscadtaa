@@ -1,0 +1,107 @@
+/* SIDEBAR */
+
+.sidebar {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  bottom: 0rem;
+  background: #ddcdd1;
+  width: 14rem;
+  
+  /* width: fit-content; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 7px 15px -6px #5b525a;
+  /* min-height: 100vh; */
+  transition: 0.3s;
+}
+@media all and (max-height: 1020px){
+  .sidebar {
+    width: 12.5rem;
+  }
+}
+.sidebar:hover {
+  background: #d8c6ca;
+  box-shadow: 5px 10px 21px -6px #5b525a;
+}
+.sidebar-items {
+  /* width: 100%; */
+  margin-top: 2.5rem;
+  padding-inline-start: 0rem;
+  list-style-type: none;
+}
+.sidebar-items li {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  /* padding-right: 2rem; */
+}
+.sidebar-items li img {
+  align-self: center;
+  justify-self: center;
+}
+.sidebar-items > li > p {
+  text-decoration: none;
+  display: block;
+  color: #000000;
+  padding: 1rem 0rem;
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+
+  font-family: "Open sans";
+  font-size: small;
+  opacity: 0.85;
+}
+.sidebar-items > li:hover {
+  background-color: #cf95a4;
+  cursor: pointer;
+}
+.sidebar-current-page {
+  background-color: #d0a8b3;
+  pointer-events: none;
+}
+.sidebar-ualr-logo {
+  mix-blend-mode: darken;
+  width: 60%;
+  align-self: center;
+  position: absolute;
+  bottom: 0rem;
+  margin-bottom: 0.75rem;
+}
+
+.solid-line-sidebar-divider {
+  width: 80%;
+  border: 0;
+  border-top: 0.045rem solid rgba(0, 0, 0, 0.1);
+  margin: 1.8em 1em 1em 1em;
+  padding: 0;
+  align-self: center;
+}
+
+.option-hidden {
+  display: none; /* Handles space occupied by element */
+  visibility: hidden; /* Handles visibility of element */
+}
+
+section.user-credentials {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  font-family: "Open sans";
+
+  font-size: x-small;
+
+  color: rgba(0, 0, 0, 0.7);
+}
+
+section.user-credentials div {
+  display: grid;
+  grid-template-columns: 0.5fr 4fr;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+  height: 1.5rem;
+  width: 70%;
+}
+
+

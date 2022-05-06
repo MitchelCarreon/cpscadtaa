@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+.btn-approve:hover {
+  background-color: #28a745 !important;
+  /* border-radius: 10px !important;
+  border: 0px !important;
+  padding: 0.5rem 0.8rem !important;
+  margin-right: 0.5rem !important;
+  cursor: pointer !important;
+  
+  min-width: auto !important; */
+}
+
+.btn-approve {
+  background-color: #9eaca1 !important;
+  border-radius: 10px !important;
+  border: 0px !important;
+  padding: 0.5rem 0.8rem !important;
+  margin-right: 0.5rem !important;
+  cursor: pointer !important;
+  /* text-transform: none !important; */
+  min-width: auto !important;
+}
+
+.btn-deny {
+  background: #a74628 !important;
+  border-radius: 10px !important;
+  border: 0px !important;
+  padding: 0.5rem 0.9rem !important;
+  cursor: pointer !important;
+  min-width: auto !important;
+}
+
+.regReqs-card-table {
+  transition: 0.7s;
+}
+.regReqs-card-table:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}

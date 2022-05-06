@@ -1,0 +1,35 @@
+.html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.add-course-btn {
+  margin: 1rem !important;
+  border-radius: 0.5rem;
+  padding: 0.35rem 1rem;
+  /* background: #28a745 !important; */
+  background: #2b2e2b !important;
+  border-style: none;
+}
+.add-course-btn:disabled {
+  background: #9fada2 !important;
+  /* color: #000 !important; */
+}
+.go-to-assign-sections-btn {
+  color: rgb(53, 135, 53) !important;
+}
+.go-to-assign-sections-btn:disabled {
+  color: #9fada2 !important;
+}
+
+.course-name-text {
+  font-weight: bold !important;
+}
+
+.course-card-table:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.course-card-table {
+  transition: 0.7s;
+}

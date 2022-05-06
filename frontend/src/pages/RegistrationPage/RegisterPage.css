@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap");
+
+/* actual sht for the page */
+.background-register {
+  background: #d2b7be;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: Karla;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  /* position: absolute; */
+  background: #f6fbf9;
+  border-radius: 4rem;
+
+  /* top: 2%; */
+  /* left: 27%; */
+
+  width: auto;
+  height: auto;
+ 
+  
+
+  /* padding: 1rem 1rem 1rem 1rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  
+
+  z-index: 1;
+  /* border: 1px solid red;  */
+  padding: 0.8vh 4vw;
+  
+}
+
+.card-title {
+  text-align: center;
+  /* border: 1px solid red; */
+  width: 80%;
+  align-self: center;
+}
+
+.red-rectangle-left {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 50vw;
+  height: 50vh;
+}
+
+.red-rectangle-right {
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem;
+  width: 45vw;
+  height: 55vh;
+  /* z-index: 2; */
+}
+.ualr-logo-red {
+  mix-blend-mode: darken;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.input-fields-top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-rows: 1fr;
+  /* border: 1px solid black; */
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.card-title-create {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+select {
+  /* background-color: #9d6170; */
+  background-color: #6f2539;
+  border-radius: 1rem;
+  color: #fff;
+  padding: 1rem;
+  width: 100%;
+  height: 91%;
+  font-family: "Karla";
+}
+select option:disabled {
+  /* color: #9d6170; */
+  color: #6f2539;
+}
+
+.input-fields {
+  display: flex;
+
+  flex-direction: column;
+  width: 100%;
+  /* height: 58vh; */
+  height: auto;
+
+  /* width: 50rem; */
+  margin-top: 1rem;
+  align-self: center;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 1px solid rgb(180, 27, 27); */
+}
+
+form.input-fields input {
+  background: #ffffff;
+  border: 1.53407px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  padding-left: 1rem;
+  margin-bottom: 0.3rem;
+  width: 100%;
+  height: 3rem;
+  
+  font-family: "Karla";
+}
+
+.register-btn:disabled {
+  background: #746b6b !important;
+  cursor: default;
+}
+.register-btn {
+  background: #6f2539 !important;
+  border-radius: 1rem !important;
+  font-family: "Karla" !important;
+  /* font-style: normal; */
+  font-weight: 700 !important;
+  font-size: 100% !important;
+  border: none;
+  padding: 1rem;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  width: 65%;
+  height: auto;
+  /* min-width: 240px; */
+  align-self: center;
+  /* or 130% */
+  cursor: pointer;
+  text-align: center;
+
+  color: #ffffff !important;
+  text-transform: none !important;
+}
+
+/* form.input-fields input.input-field-email {
+  width: 100%;
+  align-self: flex-start;
+} */
+
+.sign-in-full-text {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.sign-in-text {
+  text-decoration: underline;
+}
+
+/* For form validations and errors */
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+.instructions {
+  font-size: 0.75rem;
+  width: 70%;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  /* position: relative; */
+  bottom: -10px;
+}
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+.hide {
+  display: none;
+}
+.valid {
+  color: limegreen;
+}
+div.input-wrapper {
+  width: 100%;
+}
+.errspan {
+  float: right;
+  margin-right: 15px;
+  margin-top: -37px;
+  position: relative;
+  z-index: 1;
+  color: red;
+}

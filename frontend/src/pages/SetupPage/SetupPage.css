@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+.background-setup {
+  position: relative;
+  width: 100vw;
+  height: 250vh;  
+  background-color: rgb(231, 235, 240);
+}
+
+/* BANNER */
+.banner-setup {
+  background: linear-gradient(90deg, #732d40 0%, #a87d89 100%);
+  /* background: linear-gradient(90deg, #a87d89 0%, #732d40 100%); */
+  position: absolute;
+  top: 0rem;
+  height: 22vh;
+  min-width: 100vw;
+}
+.gear-background {
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+}
+
+/* @media all and (max-height: 620px) {
+  .table-container-setup {
+    display: none;
+  }
+} */
+@media all and (max-width: 1100px) {
+  .table-container-setup {
+    display: none;
+  }
+}
+
+/* 900px and above 900px height */
+@media all and (min-height: 900px) {
+  .banner-setup {
+    height: 19.5vh !important;
+  }
+
+  .banner-setup img {
+    height: 19.3vh !important;
+  }
+  .table-container-setup {
+    left: 17% !important;
+    top: 5.5% !important;
+  }
+}
+
+.banner-setup img {
+  height: 22vh;
+}
+.table-container-setup {
+  width: max-content;
+  height: max-content;
+  z-index: 1;
+
+  position: absolute;
+  top: 6%;
+  left: 20%;
+
+  /* border: 1px solid green; */
+  /* align-self: center; */
+}

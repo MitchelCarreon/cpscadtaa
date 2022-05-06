@@ -1,0 +1,61 @@
+@media all and (max-width: 1070px) {
+  .left-img-dashboard {
+    display: none;
+  }
+}
+
+.background-dashboard {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-img-dashboard {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 40vh;
+}
+.right-img-dashboard {
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem;
+  height: 50vh;
+}
+.ualr-logo-dashboard {
+  position: absolute;
+  left: 2rem;
+  bottom: 1rem;
+  width: 10%;
+}
+
+.buttons-area {
+  /* display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3vw; */
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+}
+
+.btn {
+  padding: 3rem !important;
+  z-index: 1;
+
+  border-radius: 4rem !important;
+
+  box-shadow: 5px 10px 21px -6px #5b525a;
+  background: linear-gradient(180deg, #8c324a 0%, #945e6d 100%);
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.hide-button {
+  display: none !important;
+  visibility: hidden;
+}
+

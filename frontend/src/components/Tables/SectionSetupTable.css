@@ -1,0 +1,36 @@
+/* .html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+} */
+
+.add-section-btn {
+  margin: 1rem !important;
+  border-radius: 0.5rem;
+  padding: 0.35rem 1rem;
+  /* background: #28a745 !important; */
+  background: #2b2e2b !important;
+  border-style: none;
+}
+.add-section-btn:disabled {
+  background: #9fada2 !important;
+  /* color: #000 !important; */
+}
+
+.course-name-text {
+  font-weight: bold !important;
+}
+
+.section-card-table:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.section-card-table {
+  transition: 0.7s;
+}
+
+/* @media all and (min-width: 1400px) {
+    .meeting-days-field {
+      width: "240px" !important;
+    }
+  } */
+

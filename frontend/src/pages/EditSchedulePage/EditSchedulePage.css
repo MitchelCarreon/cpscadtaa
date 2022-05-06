@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+.background-edit-schedules {
+  position: relative;
+  width: 100vw;
+  height: 200vh;  
+  background-color: rgb(231, 235, 240);
+}
+
+/* BANNER */
+.banner-edit-schedules {
+  background: linear-gradient(90deg, #732d40 0%, #a87d89 100%);
+  /* background: linear-gradient(90deg, #a87d89 0%, #732d40 100%); */
+  position: absolute;
+  top: 0rem;
+  height: 22vh;
+  min-width: 100vw;
+}
+.edit-schedules-background {
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+}
+/* 
+@media all and (max-height: 620px) {
+  .table-container-edit-schedules {
+    display: none;
+  }
+} */
+/* UNCOMMENT BELOW AFTER TESTING */
+/* @media all and (max-width: 1400px) {
+  .table-container-edit-schedules {
+    display: none;
+  }
+} */
+
+/* 900px and above 900px height */
+@media all and (min-height: 900px) {
+  .banner-edit-schedules {
+    height: 19.5vh !important;
+  }
+
+  .banner-edit-schedules img {
+    height: 16.3vh !important;
+  }
+  .table-container-edit-schedules {
+    left: 14% !important;
+    /* top: 7.5% !important; */
+    top: 5.5% !important;
+  }
+}
+
+.banner-edit-schedules img {
+  height: 18.5vh;
+}
+.table-container-edit-schedules {
+  width: 83vw;
+  height: 80vh;
+  z-index: 1;
+
+  position: absolute;
+  top: 5%;
+  left: 16%;
+
+  /* border: 1px solid green; */
+  /* align-self: center; */
+}
