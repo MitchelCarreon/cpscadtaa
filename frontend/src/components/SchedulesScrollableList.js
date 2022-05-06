@@ -10,7 +10,7 @@ import useSchedulesList from "./useSchedulesScrollableList";
 export default function SchedulesScrollableList(props) {
   const { schedulesList, setSchedulesList } = useSchedulesList();
 
-  const { setTableData, setCurrentSchedule, setOpenPopup } = props;
+  const { setTableData, setCurrentSchedule, setOpenPopup, setNotify } = props;
 
   const getSchedules = () => {
     // console.log("Getting schedules");
@@ -56,6 +56,12 @@ export default function SchedulesScrollableList(props) {
                   setTableData(scheduleItem.assignedClasses);
                   setCurrentSchedule(scheduleItem);
                   setOpenPopup(false)
+
+                  setNotify({
+                    isOpen: true,
+                    message: `Retrieved schedule: ${scheduleItem.schedule_name}`,
+                    type: "success",
+                  })
                 }}
               >
                 <ListItemText primary={schedule.schedule_name} />

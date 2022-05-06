@@ -6,6 +6,7 @@ export default function Notification(props) {
 
   const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
+        return
           // intentionally empty. Stops user by closing notification by clicking anywhere on the page/window.
       }
     setNotify({ ...notify, isOpen: false });

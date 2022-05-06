@@ -40,6 +40,7 @@ import SchedulesScrollableList from "../../components/SchedulesScrollableList";
 import ScheduleInfo from "../../components/ScheduleInfo";
 import CreateIcon from "@mui/icons-material/Create";
 import EditAssignedClassForm from "../../components/Forms/EditAssignedClassForm/EditAssignedClassForm";
+import Notification from "../../components/Forms/SectionForm/controls/Notification";
 
 export default function AssistantPage(props) {
   document.title = "Assistant - ADTAA";
@@ -75,12 +76,10 @@ export default function AssistantPage(props) {
   }, []);
 
   const [tableData, setTableData] = React.useState(null);
-  
   const [currentSchedule, setCurrentSchedule] = React.useState(null);
 
   // console.log(tableData);
   console.log(currentSchedule);
-  
 
   const editAssignedClass = (assignedClassID, formData, resetForm) => {
     axios
@@ -100,8 +99,21 @@ export default function AssistantPage(props) {
 
         // update table data (assignedClasses)
         setTableData(retrievedTableData[currentScheduleIndex].assignedClasses);
+
+        setNotify({
+          isOpen: true,
+          message: "Assigned class modified!",
+          type: "success",
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setNotify({
+          isOpen: true,
+          message: `Unable to modify class: ${error}`,
+          type: "error",
+        });
+      });
 
     setOpenPopupEditClass(false);
     resetForm();
@@ -131,8 +143,21 @@ export default function AssistantPage(props) {
 
         // update table data (assignedClasses)
         setTableData(retrievedTableData[currentScheduleIndex].assignedClasses);
+
+        setNotify({
+          isOpen: true,
+          message: "Assigned class deleted from schedule!",
+          type: "success",
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setNotify({
+          isOpen: true,
+          message: `Unable to delete assigned class: ${error}`,
+          type: "error",
+        });
+      });
   };
   const deleteSchedule = () => {
     axios
@@ -160,8 +185,20 @@ export default function AssistantPage(props) {
           setCurrentSchedule(null);
           setTableData(retrievedTableData);
         }
+        setNotify({
+          isOpen: true,
+          message: "Schedule deleted!",
+          type: "success",
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setNotify({
+          isOpen: true,
+          message: `Unable to delete schedule: ${error}`,
+          type: "error",
+        });
+      });
   };
 
   const generateSchedule = (formData) => {
@@ -182,8 +219,21 @@ export default function AssistantPage(props) {
           ); // retrievedTableData[0].assignedClasses
         } else setTableData(retrievedTableData);
         // console.log(response);
+
+        setNotify({
+          isOpen: true,
+          message: "Schedule generated!",
+          type: "success",
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setNotify({
+          isOpen: true,
+          message: `Unable to generate schedule: ${error}`,
+          type: "error",
+        });
+      });
   };
 
   // getSchedules() used for initial render
@@ -303,6 +353,12 @@ export default function AssistantPage(props) {
   const [openPopupEditClass, setOpenPopupEditClass] = React.useState(false);
   const [assignedClassToEdit, setAssignedClassToEdit] = React.useState(null);
 
+  const [notify, setNotify] = React.useState({
+    isOpen: false,
+    message: "",
+    type: "",
+  });
+
   function openInEditPopUp(assignedClassToEdit) {
     setOpenPopupEditClass(true);
     setAssignedClassToEdit(assignedClassToEdit);
@@ -414,7 +470,7 @@ export default function AssistantPage(props) {
               )}
             </TableHead>
             <TableBody>
-              {(tableData.length <= 0 && currentSchedule !== null)  && (
+              {tableData.length <= 0 && currentSchedule !== null && (
                 <TableRow>
                   <Typography variant="h6" style={{ padding: "1rem" }}>
                     Empty schedule!
@@ -535,6 +591,7 @@ export default function AssistantPage(props) {
             setTableData={setTableData}
             setCurrentSchedule={setCurrentSchedule}
             setOpenPopup={setOpenPopupSchedules}
+            setNotify={setNotify}
           />
         </Popup>
         {/* EDIT ASSIGNEDCLASS POPUP */}
@@ -549,6 +606,7 @@ export default function AssistantPage(props) {
             editAssignedClass={editAssignedClass}
           />
         </Popup>
+        <Notification notify={notify} setNotify={setNotify} />
       </div>
     </div>
   );
