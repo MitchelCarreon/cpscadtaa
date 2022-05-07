@@ -1,4 +1,5 @@
-####  **Deployment from original repo** (Updated 5/5/22)
+###  **Deployment** 
+*(Updated 5/5/22)*
 
 - **Get zip file** of latest branch
 - **Create** a new **GitHub repository** (i.e., ```git init```) and push source code from zip.
@@ -21,9 +22,24 @@ References:
 - Deploying flask-react app in heroku [YouTube tutorial](https://youtu.be/h96KP3JMX7Q?t=784)
 - Deploying flask-react app in heroku [article tutorial](https://towardsdatascience.com/build-deploy-a-react-flask-app-47a89a5d17d9)
 - Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
+
+### ***Making modifications to the app*** 
+*(Updated 5/7/22)*
+
+- To modify deployed app:
+  - In ***.flaskenv***, change *FLASK_ENV* from *production* to *development*
+  - In **frontend/package.json**, change proxy to *localhost:5000*
+  - Then run, ```npm run build``` (Otherwise, changes wont reflect in UI or in database)
+
+- After modifications:
+  - In ***.flaskenv***, change *FLASK_ENV* from *development* to *production*
+  - In ***frontend/package.json***, change proxy back to domain name
+  - Run, ```npm run build```
+  - In ***frontend/build***, place required files for dead-end-pages 
   
 ------------------------------------------
-#### **Setting up (Windows)** (Updated 4/8/22)
+### **Setting up (Windows)**
+*(Updated 4/8/22)*
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -53,7 +69,8 @@ npm start
 ```
 
 ------------------------------------------
-#### **Setting up (MacOS)** (Updated 4/8/22)
+### **Setting up (MacOS)** 
+*(Updated 4/8/22)*
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -111,7 +128,8 @@ npm start
 ```
 
 ------------------------------------------
-#### ***ISSUES*** (Updated 4/29/22)
+### ***ISSUES*** 
+*(Updated 4/29/22)*
 
 ***Import could not be resolved from source***
 - Inside VSCode command palette (```Ctrl + Shift + P```), find *Python: Select Interpeter*
