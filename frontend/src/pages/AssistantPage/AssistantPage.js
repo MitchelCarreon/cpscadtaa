@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import assistantBackground from "../../assets/svg/background_assistant.svg";
 import Sidebar from "../../components/Sidebar";
 import "./AssistantPage.css";
+import { format } from "date-fns";
 
 import Controls from "../../components/Forms/SectionForm/controls/Controls";
 import {
@@ -462,6 +463,7 @@ export default function AssistantPage(props) {
               <TableCell style={HeaderStyle}>Course name</TableCell>
               <TableCell style={HeaderStyle}>Section #</TableCell>
               <TableCell style={HeaderStyle}>Instructor name</TableCell>
+              <TableCell style={HeaderStyle}>Meeting periods</TableCell>
               <TableCell style={HeaderStyle}>Common discipline areas</TableCell>
               {credentials.user_access_level !== "ASSISTANT" ? (
                 <TableCell style={HeaderStyle}></TableCell>
@@ -497,6 +499,21 @@ export default function AssistantPage(props) {
                       </TableCell>
                       <TableCell style={{ width: "0px" }}>
                         {`${elem.assigned_instructor.lastName}, ${elem.assigned_instructor.firstName}`}
+                      </TableCell>
+                      <TableCell style={{width: "125px"}}>
+                        <ul className="meetingPeriodsCell">
+                          {elem.assigned_section.meeting_periods.map(
+                            (meetingPeriod) => (
+                              <li>{`${meetingPeriod.meetDay} ${format(
+                                new Date(meetingPeriod.startTime),
+                                "HH:mm"
+                              )} - ${format(
+                                new Date(meetingPeriod.endTime),
+                                "HH:mm"
+                              )}`}</li>
+                            )
+                          )}
+                        </ul>
                       </TableCell>
                       <TableCell style={{ height: "40px", width: "260px" }}>
                         <div

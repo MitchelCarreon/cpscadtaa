@@ -207,6 +207,9 @@ def get_schedules():
             assignedClass['assigned_section'] = {
                 key: sectionDict[key] for key in sectionDict if key in ('sectionNumber', 'course_id', 'id')}
 
+            assignedClass['assigned_section']['meeting_periods'] = meetingPeriods_schema.dump(
+                sectionDict['meetingPeriods'])
+                
             # ADD course info (name, courseNumber, disciplineAreas) using course_id
             courseDict = course_schema.dump(
                 Course.query.filter_by(id=assignedClass['assigned_section']['course_id']).first())
