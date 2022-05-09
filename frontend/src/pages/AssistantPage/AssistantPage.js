@@ -575,7 +575,7 @@ export default function AssistantPage(props) {
                     </IconButton>
                   </Tooltip>
                 </TableCell>
-                <TableCell colspan={2} style={{ borderBottom: "0" }}>
+                <TableCell colspan={3} style={{ borderBottom: "0" }}>
                   <TablePagination />
                 </TableCell>
               </TableRow>
