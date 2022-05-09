@@ -78,6 +78,8 @@ def convert_utc_to_cst(utc_time):
 @app.route("/registration-requests")
 @app.route("/assistant")
 @app.route("/edit-schedules")
+@app.route("/login")
+@app.route("/register")
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
