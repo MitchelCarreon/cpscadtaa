@@ -17,16 +17,17 @@
   min-width: 100vw;
 }
 
-/* @media all and (max-height: 620px) {
+@media all and (max-height: 600px), all and (max-width: 1100px) {
   .table-container-setup-sections {
     display: none;
   }
-} */
-/* @media all and (max-width: 1400px) {
-  .table-container-setup-sections {
-    display: none;
-  }
-} */
+}
+/* 800px and below 800px height */
+@media all and (max-height: 800px) {
+ .background-setup-sections {
+   height: 170vh;
+ }
+}
 
 /* 900px and above 900px height */
 @media all and (min-height: 900px) {
