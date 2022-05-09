@@ -24,7 +24,7 @@ References:
 - Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
 
 ### ***Making modifications to the app*** 
-*(Updated 5/7/22)*
+*(Updated 5/8/22)*
 
 - To modify deployed app:
   - In ***.flaskenv***, change *FLASK_ENV* from *production* to *development*
@@ -36,7 +36,12 @@ References:
   - In ***frontend/package.json***, change proxy back to domain name
   - Run, ```npm run build```
   - In ***frontend/build***, place required files for dead-end-pages 
+  - Save changes in GitHub and heroku repos:
   
+  ```
+  git push heroku main
+  git push origin main
+  ```
 ------------------------------------------
 ### **Setting up (Windows)**
 *(Updated 4/8/22)*
