@@ -27,7 +27,7 @@ def create_app():
     # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db" 
 
     # heroku postgresql database
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://dgrxigikmujzqq:672400b26c8e4a9ee69ea7d4718df9747cbe618853d09f1a4996989be93499cc@ec2-52-71-69-66.compute-1.amazonaws.com:5432/d517mnv8c964qq"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://dgrxigikmujzqq:672400b26c8e4a9ee69ea7d4718df9747cbe618853d09f1a4996989be93499cc@ec2-52-71-69-66.compute-1.amazonaws.com:5432/d517mnv8c964qq"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # for login and registration, respectively.
