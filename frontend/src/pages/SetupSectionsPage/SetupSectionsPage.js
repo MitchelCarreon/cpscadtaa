@@ -406,10 +406,10 @@ export default function SetupSectionsPage(props) {
                     <>
                       <TableCell>{meetingPeriod.meetDay}</TableCell>
                       <TableCell>
-                        {format(new Date(meetingPeriod.startTime), "HH:mm")}
+                        {format(new Date(meetingPeriod.startTime), "HH:mm", {timeZone: "America/Chicago"})}
                       </TableCell>
                       <TableCell>
-                        {format(new Date(meetingPeriod.endTime), "HH:mm")}
+                        {format(new Date(meetingPeriod.endTime), "HH:mm", {timeZone: "America/Chicago"})}
                       </TableCell>
                     </>
                   ))}

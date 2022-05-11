@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cc9a00bd.css",
-    "main.js": "/static/js/main.aa40c71e.js",
+    "main.js": "/static/js/main.d806b2af.js",
     "static/js/787.57c866cc.chunk.js": "/static/js/787.57c866cc.chunk.js",
     "static/media/sidebar_ualr.svg": "/static/media/sidebar_ualr.5845c602d256fe52e2ad29aed9dc8034.svg",
     "static/media/uarLogoRed.svg": "/static/media/uarLogoRed.a9a38eeb2533de27ba85474794881cd2.svg",
@@ -34,11 +34,11 @@
     "static/media/background_rectangle2.svg": "/static/media/background_rectangle2.21510b1bce93e6e893942639ba52b5bf.svg",
     "static/media/ellipse.svg": "/static/media/ellipse.2f5c7a72ee1a5cf2d044c0c59feb3fb5.svg",
     "main.cc9a00bd.css.map": "/static/css/main.cc9a00bd.css.map",
-    "main.aa40c71e.js.map": "/static/js/main.aa40c71e.js.map",
+    "main.d806b2af.js.map": "/static/js/main.d806b2af.js.map",
     "787.57c866cc.chunk.js.map": "/static/js/787.57c866cc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc9a00bd.css",
-    "static/js/main.aa40c71e.js"
+    "static/js/main.d806b2af.js"
   ]
 }
