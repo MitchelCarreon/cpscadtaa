@@ -29,11 +29,13 @@ References:
 - To modify deployed app:
   - In ***.flaskenv***, change *FLASK_ENV* from *production* to *development*
   - In **frontend/package.json**, change proxy to *localhost:5000*
+  - In **app.py**, change *app.config[SQLALCHEMY_DATABASE_URI"]* to local SQLite database.
   - Then run, ```npm run build``` (Otherwise, changes wont reflect in UI or in database)
 
 - After modifications:
   - In ***.flaskenv***, change *FLASK_ENV* from *development* to *production*
   - In ***frontend/package.json***, change proxy back to domain name
+  - In **app.py**, change *app.config[SQLALCHEMY_DATABASE_URI"]* to PostgreSQL DATABASE_URL from heroku (```heroku config --app cpsc-adtaa```).
   - Run, ```npm run build```
   - In ***frontend/build***, place required files for dead-end-pages 
   - Save changes in GitHub and heroku repos:
@@ -42,8 +44,18 @@ References:
   git push heroku main
   git push origin main
   ```
-------------------------------------------
+### **Process in migrating from SQLite to PostgreSQL**
+*(Updated 5/11/22)*
+
+- Create PostgreSQL DB in Heroku via ```heroku addons:create heroku-postgresql:<plan-name> --app <app-name> ```
+- Get *DATABASE_URL* via ```heroku config --app <app-name>```. NOTE: Change *postgre* to *postgresql* as indicated [here](https://stackoverflow.com/questions/62688256/sqlalchemy-exc-nosuchmoduleerror-cant-load-plugin-sqlalchemy-dialectspostgre).
+- In **app.py**,  change *app.config[SQLALCHEMY_DATABASE_URI"]* to retrieved *DATABASE_URL*.
+- Initialize database with defined tables via ```heroku run python manage.py```
+
+## **Setup**
+
 ### **Setting up (Windows)**
+
 *(Updated 4/8/22)*
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
@@ -132,8 +144,7 @@ npm install
 npm start
 ```
 
-------------------------------------------
-### ***ISSUES*** 
+## ***Issues*** 
 *(Updated 4/29/22)*
 
 ***Import could not be resolved from source***
@@ -165,10 +176,17 @@ Then, ```python manage.py```
 
 Or, use *DB Browser for SQLite* to execute SQL statements.
 
-
-
 ***Testing email confirmation***
 
 Create mailtrap account. The free version only.
 In app.py:
 - Change *app.config['MAIL_USERNAME]* and *app.config['MAIL_PASSWORD']* to your mailtrap credentials (SMTP Settings > Integrations > Flask-Mail
+
+
+***SQLite vs. PostgreSQL (Diff with original repo)***
+
+Changes to the *SetupSectionsPage* and *SectionForm* (post-presentation):
+
+- **During development (orig repo)**, *SQLite* was used and datetime was stored as CST.
+- **After deployment**, *SQLite* can still be used for local testing. datetime is stored as UTC but converted to CST in the frontend.
+- Using **PostgreSQL**, datetime is stored as UTC but converted to CST in the frontend.
