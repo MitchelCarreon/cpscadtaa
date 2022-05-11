@@ -1,4 +1,4 @@
-###  **Deployment** 
+##  **Deployment** 
 *(Updated 5/5/22)*
 
 - **Get zip file** of latest branch
