@@ -1,5 +1,4 @@
 ##  **Deployment** 
-*(Updated 5/5/22)*
 
 - **Get zip file** of latest branch
 - **Create** a new **GitHub repository** (i.e., ```git init```) and push source code from zip.
@@ -24,7 +23,6 @@ References:
 - Heroku deployment [docs](https://devcenter.heroku.com/articles/git) 
 
 ### ***Making modifications to the app*** 
-*(Updated 5/8/22)*
 
 - To modify deployed app:
   - In ***.flaskenv***, change *FLASK_ENV* from *production* to *development*
@@ -44,8 +42,7 @@ References:
   git push heroku main
   git push origin main
   ```
-### **Process in migrating from SQLite to PostgreSQL**
-*(Updated 5/11/22)*
+### ***Process in migrating from SQLite to PostgreSQL***
 
 - Create PostgreSQL DB in Heroku via ```heroku addons:create heroku-postgresql:<plan-name> --app <app-name> ```
 - Get *DATABASE_URL* via ```heroku config --app <app-name>```. NOTE: Change *postgre* to *postgresql* as indicated [here](https://stackoverflow.com/questions/62688256/sqlalchemy-exc-nosuchmoduleerror-cant-load-plugin-sqlalchemy-dialectspostgre).
@@ -55,8 +52,6 @@ References:
 ## **Setup**
 
 ### **Setting up (Windows)**
-
-*(Updated 4/8/22)*
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -87,7 +82,6 @@ npm start
 
 ------------------------------------------
 ### **Setting up (MacOS)** 
-*(Updated 4/8/22)*
 
 Inside VSCode, open 2 terminals. One for frontend (```cd frontend```), one for backend.
 
@@ -145,7 +139,6 @@ npm start
 ```
 
 ## ***Issues*** 
-*(Updated 4/29/22)*
 
 ***Import could not be resolved from source***
 - Inside VSCode command palette (```Ctrl + Shift + P```), find *Python: Select Interpeter*
