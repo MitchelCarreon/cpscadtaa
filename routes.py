@@ -634,16 +634,16 @@ def add_section():
 
     periodDays = [
         {"meetingPeriodDay": request.json['meetingPeriod1Day'],
-         "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod1Start']),
-            "meetingPeriodEnd": convert_utc_to_cst(request.json['meetingPeriod1End'])},
+         "meetingPeriodStart": request.json['meetingPeriod1Start'],
+            "meetingPeriodEnd": request.json['meetingPeriod1End']},
 
         {"meetingPeriodDay": request.json['meetingPeriod2Day'],
-         "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod2Start']),
-            "meetingPeriodEnd":convert_utc_to_cst(request.json['meetingPeriod2End'])},
+         "meetingPeriodStart": request.json['meetingPeriod2Start'],
+            "meetingPeriodEnd":request.json['meetingPeriod2End']},
 
         {"meetingPeriodDay": request.json['meetingPeriod3Day'],
-         "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod3Start']),
-            "meetingPeriodEnd": convert_utc_to_cst(request.json['meetingPeriod3End'])},
+         "meetingPeriodStart": request.json['meetingPeriod3Start'],
+            "meetingPeriodEnd": request.json['meetingPeriod3End']},
     ]
 
     owner = Course.query.filter_by(number=courseNumber).first()
