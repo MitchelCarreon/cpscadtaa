@@ -22,7 +22,7 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import unset_jwt_cookies, get_jwt
 
 import json
-from datetime import timedelta, timezone, datetime
+from datetime import date, timedelta, timezone, datetime
 from dateutil import tz
 from flask_jwt_extended import JWTManager
 
@@ -58,6 +58,7 @@ def send_confirmation_email(user_email):
 # Needed by section routes.
 
 
+# only works locally. does not work when deployed in Heroku.
 def convert_utc_to_cst(utc_time):
     from_zone = tz.gettz('UTC')
     to_zone = tz.gettz('America/Chicago')
@@ -217,7 +218,7 @@ def get_schedules():
 
             assignedClass['assigned_section']['meeting_periods'] = meetingPeriods_schema.dump(
                 sectionDict['meetingPeriods'])
-                
+
             # ADD course info (name, courseNumber, disciplineAreas) using course_id
             courseDict = course_schema.dump(
                 Course.query.filter_by(id=assignedClass['assigned_section']['course_id']).first())
@@ -634,16 +635,16 @@ def add_section():
 
     periodDays = [
         {"meetingPeriodDay": request.json['meetingPeriod1Day'],
-         "meetingPeriodStart": request.json['meetingPeriod1Start'],
-            "meetingPeriodEnd": request.json['meetingPeriod1End']},
+         "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod1Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+            "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod1End'], '%Y-%m-%dT%H:%M:%S.%fZ')},
 
         {"meetingPeriodDay": request.json['meetingPeriod2Day'],
-         "meetingPeriodStart": request.json['meetingPeriod2Start'],
-            "meetingPeriodEnd":request.json['meetingPeriod2End']},
+         "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod2Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+            "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod2End'], '%Y-%m-%dT%H:%M:%S.%fZ')},
 
         {"meetingPeriodDay": request.json['meetingPeriod3Day'],
-         "meetingPeriodStart": request.json['meetingPeriod3Start'],
-            "meetingPeriodEnd": request.json['meetingPeriod3End']},
+         "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod3Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+            "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod3End'], '%Y-%m-%dT%H:%M:%S.%fZ')},
     ]
 
     owner = Course.query.filter_by(number=courseNumber).first()
@@ -700,19 +701,19 @@ def update_section():
 
     periodDays = [
         {"meetingPeriodDay": request.json['meetingPeriod1Day'],
-         "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod1Start']),
-            "meetingPeriodEnd": convert_utc_to_cst(request.json['meetingPeriod1End'])},
+         "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod1Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+            "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod1End'], '%Y-%m-%dT%H:%M:%S.%fZ')},
 
         {"meetingPeriodDay": request.json['meetingPeriod2Day'],
-         "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod2Start']),
-            "meetingPeriodEnd":convert_utc_to_cst(request.json['meetingPeriod2End'])},
+         "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod2Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+            "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod2End'], '%Y-%m-%dT%H:%M:%S.%fZ')},
     ]
 
     numMeetingPeriods = int(request.json['numMeetingPeriods'])
     if numMeetingPeriods == 3:
         periodDays.append({"meetingPeriodDay": request.json['meetingPeriod3Day'],
-                           "meetingPeriodStart": convert_utc_to_cst(request.json['meetingPeriod3Start']),
-                           "meetingPeriodEnd": convert_utc_to_cst(request.json['meetingPeriod3End'])},)
+                           "meetingPeriodStart": datetime.strptime(request.json['meetingPeriod3Start'], '%Y-%m-%dT%H:%M:%S.%fZ'),
+                           "meetingPeriodEnd": datetime.strptime(request.json['meetingPeriod3End'], '%Y-%m-%dT%H:%M:%S.%fZ')},)
 
     for meetingPeriod in sectionToEdit.meetingPeriods:
         db.session.delete(meetingPeriod)
@@ -797,7 +798,8 @@ def register_user():
 
     if username == "ROOT" and email == "cpscadtaa@gmail.com":
         # Create new root user
-        new_root_user = User(username=username, email=email, password=password, accessLevel="ROOT")
+        new_root_user = User(username=username, email=email,
+                             password=password, accessLevel="ROOT")
 
         # Make user valid without having to verify email via confirmation email and without registration request approval
         new_root_user.isValid = True
@@ -805,7 +807,8 @@ def register_user():
 
         db.session.add(new_root_user)
         db.session.commit()
-        return user_schema.jsonify(new_root_user) # this response is never used in frontend
+        # this response is never used in frontend
+        return user_schema.jsonify(new_root_user)
 
     new_user = User(username=username, email=email,
                     password=password, accessLevel=accessLevel)
@@ -818,7 +821,8 @@ def register_user():
     # db.session.query(User).delete()
     # db.session.commit()
 
-    return user_schema.jsonify(new_user) # this response is never used in frontend
+    # this response is never used in frontend
+    return user_schema.jsonify(new_user)
 
 
 @ app.route("/login-user", methods=['GET', 'POST'])

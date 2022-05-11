@@ -7,6 +7,7 @@ import { Box } from "@mui/system";
 
 import axios from "axios";
 import { add, addMinutes, differenceInMinutes, sub } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
 
 // Explanation on SectionForm validation:
 // Restrictions/Constraints:
@@ -158,10 +159,14 @@ export default function SectionsForm(props) {
         ...sectionToEdit,
 
         meetingPeriod1Day: sectionToEdit.meetingPeriods[0].meetDay,
-        meetingPeriod1Start: new Date(
-          sectionToEdit.meetingPeriods[0].startTime
+        meetingPeriod1Start: utcToZonedTime(
+          `${sectionToEdit.meetingPeriods[0].startTime}Z`,
+          "America/Chicago"
         ),
-        meetingPeriod1End: new Date(sectionToEdit.meetingPeriods[0].endTime),
+        meetingPeriod1End: utcToZonedTime(
+          `${sectionToEdit.meetingPeriods[0].endTime}Z`,
+          "America/Chicago"
+        ),
 
         // Back when life was much fun and simpler... 2 v 3 meetingPeriods.
         // meetingPeriod2Day: sectionToEdit.meetingPeriods[1].meetDay,
@@ -177,11 +182,17 @@ export default function SectionsForm(props) {
         meetingPeriod2Start:
           sectionToEdit.numMeetingPeriods <= 1
             ? new Date()
-            : new Date(sectionToEdit.meetingPeriods[1].startTime),
+            : utcToZonedTime(
+                `${sectionToEdit.meetingPeriods[1].startTime}Z`,
+                "America/Chicago"
+              ),
         meetingPeriod2End:
           sectionToEdit.numMeetingPeriods <= 1
             ? new Date()
-            : new Date(sectionToEdit.meetingPeriods[1].endTime),
+            : utcToZonedTime(
+                `${sectionToEdit.meetingPeriods[1].endTime}Z`,
+                "America/Chicago"
+              ),
 
         meetingPeriod3Day:
           sectionToEdit.numMeetingPeriods <= 2
@@ -190,11 +201,17 @@ export default function SectionsForm(props) {
         meetingPeriod3Start:
           sectionToEdit.numMeetingPeriods <= 2
             ? new Date() // new Date(). Otherwise, time picker throws a stupid error. also, route needs a date object to do convert_utc_to_cst
-            : new Date(sectionToEdit.meetingPeriods[2].startTime), // time picker only allows Date() objects.
+            : utcToZonedTime(
+                `${sectionToEdit.meetingPeriods[2].startTime}Z`,
+                "America/Chicago"
+              ), // time picker only allows Date() objects.
         meetingPeriod3End:
           sectionToEdit.numMeetingPeriods <= 2
             ? new Date()
-            : new Date(sectionToEdit.meetingPeriods[2].endTime),
+            : utcToZonedTime(
+                `${sectionToEdit.meetingPeriods[2].endTime}Z`,
+                "America/Chicago"
+              ),
       });
     }
   }, [sectionToEdit]);

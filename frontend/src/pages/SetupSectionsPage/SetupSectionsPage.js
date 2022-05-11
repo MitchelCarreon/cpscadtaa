@@ -36,6 +36,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import Notification from "../../components/Forms/SectionForm/controls/Notification";
+import { utcToZonedTime } from "date-fns-tz";
 
 export default function SetupSectionsPage(props) {
   document.title = "Setup sections - ADTAA";
@@ -319,7 +320,9 @@ export default function SetupSectionsPage(props) {
   if (loading === true) return <Loader message={""} />;
   else if (credentials === undefined || credentials === null) {
     return (
-      <Loader message={"Authenticating... Please refresh if page does not load"} />
+      <Loader
+        message={"Authenticating... Please refresh if page does not load"}
+      />
     );
   } else if (
     credentials.user_access_level !== "ROOT" &&
@@ -402,17 +405,38 @@ export default function SetupSectionsPage(props) {
                   <TableCell style={{ width: "0px" }}>
                     {elem.meetingPeriods.length}
                   </TableCell>
-                  {elem.meetingPeriods.map((meetingPeriod) => (
-                    <>
-                      <TableCell>{meetingPeriod.meetDay}</TableCell>
-                      <TableCell>
-                        {format(new Date(meetingPeriod.startTime), "HH:mm", {timeZone: "America/Chicago"})}
-                      </TableCell>
-                      <TableCell>
-                        {format(new Date(meetingPeriod.endTime), "HH:mm", {timeZone: "America/Chicago"})}
-                      </TableCell>
-                    </>
-                  ))}
+                  {elem.meetingPeriods.map((meetingPeriod) => {
+                    console.log(meetingPeriod.startTime)
+                    return (
+                      <>
+                        <TableCell>{meetingPeriod.meetDay}</TableCell>
+                        <TableCell>
+                          {format(
+                            utcToZonedTime(
+                              `${meetingPeriod.startTime}Z`,
+                              "America/Chicago"
+                            ),
+                            "HH:mm",
+                            {
+                              timeZone: "America/Chicago",
+                            }
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          {format(
+                            utcToZonedTime(
+                              `${meetingPeriod.endTime}Z`,
+                              "America/Chicago"
+                            ),
+                            "HH:mm",
+                            {
+                              timeZone: "America/Chicago",
+                            }
+                          )}
+                        </TableCell>
+                      </>
+                    );
+                  })}
 
                   {elem.meetingPeriods.length === 1 && (
                     <>
@@ -431,7 +455,7 @@ export default function SetupSectionsPage(props) {
                       <TableCell></TableCell>
                     </>
                   )}
-                  <TableCell align="center" style={{width: "125px"}}>
+                  <TableCell align="center" style={{ width: "125px" }}>
                     <Controls.ActionButton
                       color="primary"
                       handleClick={() => {
@@ -470,7 +494,7 @@ export default function SetupSectionsPage(props) {
               marginTop: "10px",
             }}
           >
-            <Tooltip title="Assign courses and instructors" arrow >
+            <Tooltip title="Assign courses and instructors" arrow>
               <IconButton onClick={goToSetupPage} style={{ color: "#732d40" }}>
                 <ArrowBackIcon />
               </IconButton>
